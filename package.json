@@ -1,0 +1,22 @@
+{
+  "name": "raspberry-nodejs-gpio",
+  "version": "1.0.0",
+  "description": "raspberry-nodejs-gpio =====================",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binary-zebra/raspberry-nodejs-gpio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/binary-zebra/raspberry-nodejs-gpio/issues"
+  },
+  "homepage": "https://github.com/binary-zebra/raspberry-nodejs-gpio",
+  "dependencies": {
+    "express": "^4.10.6"
+  }
+}

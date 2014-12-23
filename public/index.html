@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>LED</title>
+        
+		<style>
+		
+		body{
+			background-color: black;
+		}
+		
+		.led{
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			display:inline-block;
+			margin-right: 10px;
+			border: 3px solid silver;
+		}
+		
+		.green{
+			background-color:green;
+			border-color:green;
+		}
+		
+		.red{
+			background-color:red;
+			border-color:red;
+		}
+		
+		.yellow{
+			background-color:yellow;
+			border-color:yellow;
+		}
+		
+		.off{
+			background-color: silver !important;
+		}
+		
+		</style>
+		
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.min.js"></script>
+		
+    </head>
+    <body>
+        
+		
+		<div id="pin-23" class="led green off" data-pin="23"></div>
+		<div id="pin-24" class="led yellow off" data-pin="24"></div>
+		<div id="pin-25" class="led red off" data-pin="25"></div>
+		
+		<script>
+		
+		
+		jQuery(document).ready(function(){
+			
+			jQuery('.led').bind('click', function() {
+				
+				var element = jQuery(this);
+			
+				var pin = element.data('pin');
+				
+				jQuery.get( 
+					'/toggle/'+ pin,
+					function(data) {
+												
+						if (data.status) {
+							element.removeClass('off');
+						} else {
+							element.addClass('off');
+						}
+						
+					}
+				);
+			
+			});
+			
+			// initial status
+			jQuery('.led').each(function(index){
+				
+				var element = jQuery(this);
+				
+				var pin = element.data('pin');
+				
+				jQuery.get( 
+					'/status/'+ pin,
+					function(data) {
+						
+						if (data.status) {
+							element.removeClass('off');
+						} else {
+							element.addClass('off');
+						}
+						
+					}
+				);
+				
+			});
+			
+			
+			
+		});
+		
+		
+		
+		</script>
+		
+		
+    </body>
+</html>
